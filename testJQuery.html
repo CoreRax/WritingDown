@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JQuery控制Css样式</title>
+	<script type="text/javascript" src="jQuery-2.1.4.min.js"></script>
+	<style type="text/css">
+		.divDefault{width: 260px;font-size: 10pt;padding: 5px}
+		.divClick{width: 260px;border: solid 1px #666;font-size: 10pt;background-color: #eee;padding: 5px}
+	</style>
+	<script type="text/javascript">
+		$(function(){
+			$(".divDefault").click(function(){
+				$(this).toggleClass("divClick").html("点击后的样式")
+			})
+		})
+	</script>
+</head>
+<body>
+	<div class="divDefault">点击前的样式</div>
+</body>
+</html>

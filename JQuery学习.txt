@@ -1,0 +1,20 @@
+jQuery代码风格：
+	$符号，页面元素的选择，功能函数的的前缀
+	事件操作链式书写
+
+jQuery访问DOM对象：
+jQuery中通过本身自带的方法获取页面元素的对象叫做jQuery对象;
+var tDiv=$("#divTmp");
+
+jQuery控制DOM对象：
+获取文本框的值：var oTextValue=$("#Text1").val;
+获取单选框的值：var oRdoValue=$("#Radio1").is(":checked")?"男":"女";
+获取复选框的值：var oChkValue=$("#CheckBox1").is(":checked")?"已婚":"未婚"
+
+jQuery选择器
+jQuery允许通过标签名，属性名或内容对DOM元素进行快速准确的选择，而不必担心浏览器兼容问题。
+代码更简单，完善的检测机制
+
+根据所获取页面元素的不同：基本选择器，层次选择器，过滤选择器，表单选择器
+
+
