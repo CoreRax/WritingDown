@@ -25,4 +25,11 @@ $scope是一个把view(一个DOM元素)连接到controller上的对象，在MVC�
     <div ng-controller="MyController">
       {{ person.name }}
     </div>
-ng-controller指令给所在的DOM元素创建了$scope对象，并将这个$scope对象包含进外层DOM元素$scope里。
+ng-controller指令给所在的DOM元素创建了$scope对象，并将这个$scope对象包含进外层DOM元素$scope里。 
+ 
+    app.controller('MyController', function($scope) {
+      $scope.person = {
+        name: "Ari Lerner"
+      };
+    });
+以后我们就可以在所有包含ng-controller="MyController"的DOM元素中访问到person对象。  
