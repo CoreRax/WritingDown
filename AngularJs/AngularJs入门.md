@@ -33,3 +33,14 @@ ng-controller指令给所在的DOM元素创建了$scope对象，并将这个$sco
       };
     });
 以后我们就可以在所有包含ng-controller="MyController"的DOM元素中访问到person对象。  
+除了一个例外,所有的scope都遵循原型继承,这意味着他们都能访问到付scope们。对任何属性和方法，如果AngularJs在当前scope上找不到，就会到父scope上去找，如果在父scope上也没找到，就会继续上溯，一直到$rootscope。唯一的例外：有些指令可以选择性创建一个独立的scope，让这个scope不继承它的父scope们。
+
+####0x04 数据绑定和Ajax
+双向绑定是指如果model改变了，view将会看得到这个改变，如果view改变了，model同样看得到。要想了解其中的原理需要了解digest_loop的运作。  
+要建立双向绑定，可以在DOM上使用ng-model指令属性。  
+
+    <div ng-controller="MyController">
+     <input type="text" ng-model="person.name" placeholder="Enter your name" />
+     <h5>Hello {{ person.name }}</h5>
+    </div>
+
