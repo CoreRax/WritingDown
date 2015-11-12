@@ -33,7 +33,17 @@ ng-controller指令给所在的DOM元素创建了$scope对象，并将这个$sco
       };
     });
 以后我们就可以在所有包含ng-controller="MyController"的DOM元素中访问到person对象。  
-<<<<<<< HEAD
+除了一个例外,所有的scope都遵循原型继承,这意味着他们都能访问到付scope们。对任何属性和方法，如果AngularJs在当前scope上找不到，就会到父scope上去找，如果在父scope上也没找到，就会继续上溯，一直到$rootscope。唯一的例外：有些指令可以选择性创建一个独立的scope，让这个scope不继承它的父scope们。
+
+####0x04 数据绑定和Ajax
+双向绑定是指如果model改变了，view将会看得到这个改变，如果view改变了，model同样看得到。要想了解其中的原理需要了解digest_loop的运作。  
+要建立双向绑定，可以在DOM上使用ng-model指令属性。  
+
+    <div ng-controller="MyController">
+     <input type="text" ng-model="person.name" placeholder="Enter your name" />
+     <h5>Hello {{ person.name }}</h5>
+    </div>
+
 
 **互动**  
 数据绑定不只限于数据，我们还可以利用绑定条用$scope中的函数。  
@@ -58,7 +68,8 @@ $http服务机器灵活，给了我们很多方式来调用Ajax服务。简单�
 
 $http 服务是这样一个函数：它接受一个设置对象，其中指定了如何创建HTTP请求；它将返回一个承诺（*参考JavaScript异步编程的promise模式），其中提供两个方法： success方法和error方法。   
 
-###0x04 指令和表达式  
+
+###0x05 指令和表达式  
 **指令**  
 之前提到过指令属性，指令属性就是绑定在DOM元素上的函数，它可以调用方法，定义行为，绑定controller及$scope对象，操作DOM等。  
 当AngularJs应用启动，Angular编译器就会遍历DOM树(从有ng-app的那个元素开始)，解析HTML，寻找这些指令函数。  
@@ -119,7 +130,7 @@ ng-repeat指令遍历一个数据集合中的每个数据元素，加载HTML模�
 		}
 	}）;  
 
-###0x05 服务  
+###0x06 服务  
 从内存和效率的角度出发，controller仅当需要的时候才会被实例化，并在不需要的时候被丢弃，这就意味着每一次我们使用route跳转或者重载视图当前的controller会被销毁。  
 Service可以让我们在整个应用的生命周期中保存数据并可以让controller之间共享数据。  
 Service都是单例的就是说在一个应用中，每一个Service只会被实例化一次（使用$injector服务），主要负责提供一个接口把特定函数需要的方法放在一起，例如，$http Service提供了访问底层浏览器的XMLHttpRequest对象方法，相较于直接使用XMLHttpRequest，$http API使用更简单。  
@@ -160,7 +171,7 @@ AngularJs让我们可以轻松创建自己的service，仅仅是注册service即
 
 注意我们要遵守Angular services依赖注入的规范：自定义的service要写在内建的Angular services之后，自定义的service之间是没有先后顺序的。  
 
-###0x06 Routing
+###0x07 Routing
 在单页面应用中，视图之间的跳转显得尤为重要，需要一种方法精确控制什么时候应该呈现怎么样的页面给用户。  
 
 我们可以在主页引入不同的模板来支持不同的页面的切换，缺点就是越来越多的内嵌代码导致难以管理。  
@@ -276,16 +287,3 @@ array：使用这个数组里的元素作为排序表达式的判断依据，使
          }  
     });  
 Fliters其实就是一个function，接收input 字符串，我们可以函数里做一些错误检查  
-=======
-除了一个例外,所有的scope都遵循原型继承,这意味着他们都能访问到付scope们。对任何属性和方法，如果AngularJs在当前scope上找不到，就会到父scope上去找，如果在父scope上也没找到，就会继续上溯，一直到$rootscope。唯一的例外：有些指令可以选择性创建一个独立的scope，让这个scope不继承它的父scope们。
-
-####0x04 数据绑定和Ajax
-双向绑定是指如果model改变了，view将会看得到这个改变，如果view改变了，model同样看得到。要想了解其中的原理需要了解digest_loop的运作。  
-要建立双向绑定，可以在DOM上使用ng-model指令属性。  
-
-    <div ng-controller="MyController">
-     <input type="text" ng-model="person.name" placeholder="Enter your name" />
-     <h5>Hello {{ person.name }}</h5>
-    </div>
-
->>>>>>> faea77856d9d2a08394b067b88d92c889b50af46
