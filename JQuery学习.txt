@@ -2,6 +2,9 @@ jQuery代码风格：
 	$符号，页面元素的选择，功能函数的的前缀
 	事件操作链式书写
 
+jQeury可以选取HTML元素，并对其进行某些操作。
+$(selector).action()
+
 jQuery访问DOM对象：
 jQuery中通过本身自带的方法获取页面元素的对象叫做jQuery对象;
 var tDiv=$("#divTmp");
@@ -11,10 +14,50 @@ jQuery控制DOM对象：
 获取单选框的值：var oRdoValue=$("#Radio1").is(":checked")?"男":"女";
 获取复选框的值：var oChkValue=$("#CheckBox1").is(":checked")?"已婚":"未婚"
 
-jQuery选择器
+jQuery选择器 $()
 jQuery允许通过标签名，属性名或内容对DOM元素进行快速准确的选择，而不必担心浏览器兼容问题。
 代码更简单，完善的检测机制
 
 根据所获取页面元素的不同：基本选择器，层次选择器，过滤选择器，表单选择器
 
+元素选择器：
+	jQuery元素选择器基于元素名选取元素：$("p")
+	#id选择器：$("button")
+	.calss选择器：$(".test") 
+	$("*") 	选取所有元素 
+	$(this) 	选取当前 HTML 元素 
+	$("p.intro") 	选取 class 为 intro 的 <p> 元素 
+	$("p:first") 	选取第一个 <p> 元素 
+	$("ul li:first") 	选取第一个 <ul> 元素的第一个 <li> 元素 
+	$("ul li:first-child") 	选取每个 <ul> 元素的第一个 <li> 元素 
+	$("[href]") 	选取带有 href 属性的元素 
+	$("a[target='_blank']") 	选取所有 target 属性值等于 "_blank" 的 <a> 元素 
+	$("a[target!='_blank']") 	选取所有 target 属性值不等于 "_blank" 的 <a> 元素 
+	$(":button") 	选取所有 type="button" 的 <input> 元素 和 <button> 元素 
+	$("tr:even") 	选取偶数位置的 <tr> 元素 
+	$("tr:odd") 	选取奇数位置的 <tr> 元素
 
+jQuery事件：
+	鼠标事件 	键盘事件 	表单事件 	文档/窗口事件
+	click 		keypress 	submit 		load
+	dblclick 	keydown 	change 		resize
+	mouseenter 	keyup 		focus 		scroll
+	mouseleave 				blur 		unload
+
+$(document).ready()
+	方法允许我们在文档加载完以后执行函数
+
+hover()方法用于模拟光标悬停事件
+
+效果：
+	toggle()方法显示/隐藏
+
+	fadeToggle()方法淡入淡出
+
+	fadeTo()方法渐变为给定的不透明度
+
+jQueryHTML
+DOM操作：
+	text()设置或返回所选元素的文本内容
+	html()设置或返回所选元素的内容（包括HTML标记）
+	val()设置或返回表单字段的值
